@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="USO-qO-6XN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reader View Controller-->
+        <scene sceneID="QSJ-E9-dfv">
+            <objects>
+                <viewController storyboardIdentifier="QRReaderViewController" id="USO-qO-6XN" customClass="QRReaderViewController" customModule="sample_ios_qrreader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FhV-9J-Izf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJo-6E-l2j" customClass="QRReaderView" customModule="sample_ios_qrreader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KBK-tt-E1W" firstAttribute="trailing" secondItem="vJo-6E-l2j" secondAttribute="trailing" id="7Xb-e4-gaa"/>
+                            <constraint firstItem="KBK-tt-E1W" firstAttribute="bottom" secondItem="vJo-6E-l2j" secondAttribute="bottom" id="HvN-im-mQs"/>
+                            <constraint firstItem="vJo-6E-l2j" firstAttribute="top" secondItem="KBK-tt-E1W" secondAttribute="top" id="Ocp-3W-Exl"/>
+                            <constraint firstItem="vJo-6E-l2j" firstAttribute="leading" secondItem="KBK-tt-E1W" secondAttribute="leading" id="rg5-8x-eAr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KBK-tt-E1W"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrReaderView" destination="vJo-6E-l2j" id="fUL-qm-z7r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLT-9g-yIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="329" y="142"/>
+        </scene>
+    </scenes>
+</document>

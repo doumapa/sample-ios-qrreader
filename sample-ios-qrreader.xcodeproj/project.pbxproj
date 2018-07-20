@@ -12,7 +12,35 @@
 		CC462C302101B0E1000A4578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC462C2E2101B0E1000A4578 /* Main.storyboard */; };
 		CC462C322101B0E1000A4578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC462C312101B0E1000A4578 /* Assets.xcassets */; };
 		CC462C352101B0E1000A4578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC462C332101B0E1000A4578 /* LaunchScreen.storyboard */; };
+		CC462C3F2101B978000A4578 /* Result.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC462C3E2101B978000A4578 /* Result.framework.dSYM */; };
+		CC462C412101B98D000A4578 /* ReactiveSwift.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC462C402101B98D000A4578 /* ReactiveSwift.framework.dSYM */; };
+		CC462C432101B99F000A4578 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC462C422101B99E000A4578 /* ReactiveCocoa.framework.dSYM */; };
+		CC462C462101B9D3000A4578 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */; };
+		CC462C482101B9E1000A4578 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC462C472101B9E1000A4578 /* ReactiveSwift.framework */; };
+		CC462C4A2101B9F0000A4578 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC462C492101B9F0000A4578 /* Result.framework */; };
+		CC462C512101BB99000A4578 /* QRReader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC462C4D2101BB99000A4578 /* QRReader.storyboard */; };
+		CC462C522101BB99000A4578 /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */; };
+		CC462C532101BB99000A4578 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C4F2101BB99000A4578 /* Storyboard.swift */; };
+		CC462C542101BB99000A4578 /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C502101BB99000A4578 /* UIStoryboard+.swift */; };
+		CC462C562101BC16000A4578 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C552101BC16000A4578 /* QRReaderView.swift */; };
+		CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC462C572101BC3D000A4578 /* QRReaderView.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CC462C3D2101B941000A4578 /* Copy dSYMs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				CC462C432101B99F000A4578 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */,
+				CC462C412101B98D000A4578 /* ReactiveSwift.framework.dSYM in Copy dSYMs */,
+				CC462C3F2101B978000A4578 /* Result.framework.dSYM in Copy dSYMs */,
+			);
+			name = "Copy dSYMs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CC462C272101B0E1000A4578 /* sample-ios-qrreader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-ios-qrreader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +50,18 @@
 		CC462C312101B0E1000A4578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC462C342101B0E1000A4578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC462C362101B0E1000A4578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC462C3E2101B978000A4578 /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Result.framework.dSYM; sourceTree = "<group>"; };
+		CC462C402101B98D000A4578 /* ReactiveSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ReactiveSwift.framework.dSYM; sourceTree = "<group>"; };
+		CC462C422101B99E000A4578 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
+		CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		CC462C472101B9E1000A4578 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		CC462C492101B9F0000A4578 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		CC462C4D2101BB99000A4578 /* QRReader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRReader.storyboard; sourceTree = "<group>"; };
+		CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
+		CC462C4F2101BB99000A4578 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		CC462C502101BB99000A4578 /* UIStoryboard+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
+		CC462C552101BC16000A4578 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
+		CC462C572101BC3D000A4578 /* QRReaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRReaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC462C4A2101B9F0000A4578 /* Result.framework in Frameworks */,
+				CC462C482101B9E1000A4578 /* ReactiveSwift.framework in Frameworks */,
+				CC462C462101B9D3000A4578 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +83,8 @@
 			children = (
 				CC462C292101B0E1000A4578 /* sample-ios-qrreader */,
 				CC462C282101B0E1000A4578 /* Products */,
+				CC462C442101B9D2000A4578 /* Frameworks */,
+				CC462C4C2101BB06000A4578 /* dSYMs */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +99,12 @@
 		CC462C292101B0E1000A4578 /* sample-ios-qrreader */ = {
 			isa = PBXGroup;
 			children = (
+				CC462C4D2101BB99000A4578 /* QRReader.storyboard */,
+				CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */,
+				CC462C572101BC3D000A4578 /* QRReaderView.xib */,
+				CC462C552101BC16000A4578 /* QRReaderView.swift */,
+				CC462C4F2101BB99000A4578 /* Storyboard.swift */,
+				CC462C502101BB99000A4578 /* UIStoryboard+.swift */,
 				CC462C2A2101B0E1000A4578 /* AppDelegate.swift */,
 				CC462C2C2101B0E1000A4578 /* ViewController.swift */,
 				CC462C2E2101B0E1000A4578 /* Main.storyboard */,
@@ -62,6 +113,26 @@
 				CC462C362101B0E1000A4578 /* Info.plist */,
 			);
 			path = "sample-ios-qrreader";
+			sourceTree = "<group>";
+		};
+		CC462C442101B9D2000A4578 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC462C492101B9F0000A4578 /* Result.framework */,
+				CC462C472101B9E1000A4578 /* ReactiveSwift.framework */,
+				CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC462C4C2101BB06000A4578 /* dSYMs */ = {
+			isa = PBXGroup;
+			children = (
+				CC462C422101B99E000A4578 /* ReactiveCocoa.framework.dSYM */,
+				CC462C402101B98D000A4578 /* ReactiveSwift.framework.dSYM */,
+				CC462C3E2101B978000A4578 /* Result.framework.dSYM */,
+			);
+			path = dSYMs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +145,8 @@
 				CC462C232101B0E1000A4578 /* Sources */,
 				CC462C242101B0E1000A4578 /* Frameworks */,
 				CC462C252101B0E1000A4578 /* Resources */,
+				CC462C3C2101B89B000A4578 /* Copy Frameworks */,
+				CC462C3D2101B941000A4578 /* Copy dSYMs */,
 			);
 			buildRules = (
 			);
@@ -122,6 +195,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */,
+				CC462C512101BB99000A4578 /* QRReader.storyboard in Resources */,
 				CC462C352101B0E1000A4578 /* LaunchScreen.storyboard in Resources */,
 				CC462C322101B0E1000A4578 /* Assets.xcassets in Resources */,
 				CC462C302101B0E1000A4578 /* Main.storyboard in Resources */,
@@ -130,13 +205,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CC462C3C2101B89B000A4578 /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			name = "Copy Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC462C232101B0E1000A4578 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC462C562101BC16000A4578 /* QRReaderView.swift in Sources */,
+				CC462C542101BB99000A4578 /* UIStoryboard+.swift in Sources */,
+				CC462C532101BB99000A4578 /* Storyboard.swift in Sources */,
 				CC462C2D2101B0E1000A4578 /* ViewController.swift in Sources */,
 				CC462C2B2101B0E1000A4578 /* AppDelegate.swift in Sources */,
+				CC462C522101BB99000A4578 /* QRReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +384,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7T2Z6RR4DM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "sample-ios-qrreader/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -290,7 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quietbranchstudio.sample-ios-qrreader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -300,6 +406,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7T2Z6RR4DM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "sample-ios-qrreader/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,7 +418,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quietbranchstudio.sample-ios-qrreader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
