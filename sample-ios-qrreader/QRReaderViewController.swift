@@ -16,11 +16,11 @@ class QRReaderViewController: UIViewController {
   @IBOutlet weak var qrReaderView: QRReaderView!
   @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
   
-//  var qrString: MutableProperty<String> {
-//    get {
-//      return qrReaderView.qrString
-//    }
-//  }
+  var qrString: MutableProperty<String> {
+    get {
+      return qrReaderView.qrString
+    }
+  }
 
   deinit {
     print("QRReaderViewController deinit")
@@ -43,6 +43,7 @@ class QRReaderViewController: UIViewController {
 
   fileprivate func bind() {
     doneBarButtonItem.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
+      self?.qrReaderView.stopCaptureSession()
       guard let navigationController = self?.navigationController else { return SignalProducer.empty }
       navigationController.dismiss(animated: true, completion: nil)
       return SignalProducer.empty

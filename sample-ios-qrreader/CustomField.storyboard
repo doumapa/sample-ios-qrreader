@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Field View Controller-->
+        <scene sceneID="hwa-mP-grZ">
+            <objects>
+                <viewController storyboardIdentifier="CustomFieldViewController" id="gJ3-l6-716" customClass="CustomFieldViewController" customModule="sample_ios_qrreader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hKn-nN-7Ly">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pQ9-02-x2L">
+                                <rect key="frame" x="37.5" y="308.5" width="300" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9hZ-xy-6Qb" customClass="CustomView" customModule="sample_ios_qrreader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fY8-C5-8mf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pQ9-02-x2L" firstAttribute="centerX" secondItem="hKn-nN-7Ly" secondAttribute="centerX" id="FKK-fC-0J4"/>
+                            <constraint firstItem="pQ9-02-x2L" firstAttribute="centerY" secondItem="hKn-nN-7Ly" secondAttribute="centerY" id="WcA-xw-uGS"/>
+                            <constraint firstItem="9hZ-xy-6Qb" firstAttribute="width" secondItem="hKn-nN-7Ly" secondAttribute="width" multiplier="0.8" id="iYT-vx-Bqw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KqR-np-dz1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2SG-gu-YhY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CUG-TF-E34"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="customField" destination="9hZ-xy-6Qb" id="vVQ-U0-rzq"/>
+                        <outlet property="doneBarButtonItem" destination="CUG-TF-E34" id="Exj-9P-ubg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgm-hU-jHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="-13.043478260869566"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iW7-jI-UyF">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController" automaticallyAdjustsScrollViewInsets="NO" id="bLq-ZO-qhc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UR0-Mm-OcA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gJ3-l6-716" kind="relationship" relationship="rootViewController" id="rqi-Wg-jC4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b1S-re-wQP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="-13.043478260869566"/>
+        </scene>
+    </scenes>
+</document>

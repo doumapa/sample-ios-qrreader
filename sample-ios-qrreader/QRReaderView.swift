@@ -46,7 +46,6 @@ class QRReaderView: UIView {
   }
 
   fileprivate let sessionQueue = DispatchQueue(label: "capture session queue")
-  fileprivate let (lifetime, token) = Lifetime.make()
   
   //MARK: -
   
@@ -97,6 +96,11 @@ class QRReaderView: UIView {
     startRunning()
   }
   
+  func stopCaptureSession() {
+    guard captureSession.isRunning else { return }
+    stopRunning()
+  }
+  
   //MARK: -
 
   fileprivate func startRunning() {
@@ -120,9 +124,9 @@ class QRReaderView: UIView {
     addSubview(rectangleView)
     
     NotificationCenter.default.reactive.notifications(forName: .AVCaptureSessionDidStartRunning)
-      .take(during: lifetime)
-      .observeValues { _ in
-        DispatchQueue.main.async { [weak self] in
+      .take(duringLifetimeOf: self)
+      .observeValues { [weak self] _ in
+        DispatchQueue.main.async {
           self?.displayPreview()
         }
     }
