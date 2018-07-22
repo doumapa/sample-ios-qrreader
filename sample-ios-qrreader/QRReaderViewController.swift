@@ -7,31 +7,57 @@
 //
 
 import UIKit
+import Result
+import ReactiveSwift
+import ReactiveCocoa
 
 class QRReaderViewController: UIViewController {
 
-    @IBOutlet weak var qrReaderView: QRReaderView!
+  @IBOutlet weak var qrReaderView: QRReaderView!
+  @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+  
+//  var qrString: MutableProperty<String> {
+//    get {
+//      return qrReaderView.qrString
+//    }
+//  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  deinit {
+    print("QRReaderViewController deinit")
+  }
 
-        // Do any additional setup after loading the view.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    bind()
+  }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    qrReaderView.startCaptureSession()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
 
-    /*
-    // MARK: - Navigation
+  fileprivate func bind() {
+    doneBarButtonItem.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
+      guard let navigationController = self?.navigationController else { return SignalProducer.empty }
+      navigationController.dismiss(animated: true, completion: nil)
+      return SignalProducer.empty
+      }, { (sender: UIBarButtonItem) in
+    })
+  }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
 
 }

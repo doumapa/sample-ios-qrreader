@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC25414921038B7600238685 /* Result.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414821038B7500238685 /* Result.framework.dSYM */; };
+		CC25414B21038B9100238685 /* ReactiveSwift.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */; };
+		CC25414D21038BBA00238685 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */; };
 		CC462C2B2101B0E1000A4578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C2A2101B0E1000A4578 /* AppDelegate.swift */; };
 		CC462C2D2101B0E1000A4578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C2C2101B0E1000A4578 /* ViewController.swift */; };
 		CC462C302101B0E1000A4578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC462C2E2101B0E1000A4578 /* Main.storyboard */; };
 		CC462C322101B0E1000A4578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC462C312101B0E1000A4578 /* Assets.xcassets */; };
 		CC462C352101B0E1000A4578 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC462C332101B0E1000A4578 /* LaunchScreen.storyboard */; };
-		CC462C3F2101B978000A4578 /* Result.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC462C3E2101B978000A4578 /* Result.framework.dSYM */; };
-		CC462C412101B98D000A4578 /* ReactiveSwift.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC462C402101B98D000A4578 /* ReactiveSwift.framework.dSYM */; };
-		CC462C432101B99F000A4578 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC462C422101B99E000A4578 /* ReactiveCocoa.framework.dSYM */; };
 		CC462C462101B9D3000A4578 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */; };
 		CC462C482101B9E1000A4578 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC462C472101B9E1000A4578 /* ReactiveSwift.framework */; };
 		CC462C4A2101B9F0000A4578 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC462C492101B9F0000A4578 /* Result.framework */; };
@@ -33,9 +33,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				CC462C432101B99F000A4578 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */,
-				CC462C412101B98D000A4578 /* ReactiveSwift.framework.dSYM in Copy dSYMs */,
-				CC462C3F2101B978000A4578 /* Result.framework.dSYM in Copy dSYMs */,
+				CC25414D21038BBA00238685 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */,
+				CC25414B21038B9100238685 /* ReactiveSwift.framework.dSYM in Copy dSYMs */,
+				CC25414921038B7600238685 /* Result.framework.dSYM in Copy dSYMs */,
 			);
 			name = "Copy dSYMs";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +43,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC25414821038B7500238685 /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Result.framework.dSYM; path = Carthage/Build/iOS/Result.framework.dSYM; sourceTree = "<group>"; };
+		CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveSwift.framework.dSYM; path = Carthage/Build/iOS/ReactiveSwift.framework.dSYM; sourceTree = "<group>"; };
+		CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
 		CC462C272101B0E1000A4578 /* sample-ios-qrreader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sample-ios-qrreader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC462C2A2101B0E1000A4578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC462C2C2101B0E1000A4578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,9 +53,6 @@
 		CC462C312101B0E1000A4578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC462C342101B0E1000A4578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC462C362101B0E1000A4578 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC462C3E2101B978000A4578 /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Result.framework.dSYM; sourceTree = "<group>"; };
-		CC462C402101B98D000A4578 /* ReactiveSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ReactiveSwift.framework.dSYM; sourceTree = "<group>"; };
-		CC462C422101B99E000A4578 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
 		CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		CC462C472101B9E1000A4578 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		CC462C492101B9F0000A4578 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
@@ -78,13 +78,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC25414E21038C2300238685 /* dSYMs */ = {
+			isa = PBXGroup;
+			children = (
+				CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */,
+				CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */,
+				CC25414821038B7500238685 /* Result.framework.dSYM */,
+			);
+			name = dSYMs;
+			sourceTree = "<group>";
+		};
 		CC462C1E2101B0E1000A4578 = {
 			isa = PBXGroup;
 			children = (
 				CC462C292101B0E1000A4578 /* sample-ios-qrreader */,
 				CC462C282101B0E1000A4578 /* Products */,
 				CC462C442101B9D2000A4578 /* Frameworks */,
-				CC462C4C2101BB06000A4578 /* dSYMs */,
+				CC25414E21038C2300238685 /* dSYMs */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,16 +133,6 @@
 				CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CC462C4C2101BB06000A4578 /* dSYMs */ = {
-			isa = PBXGroup;
-			children = (
-				CC462C422101B99E000A4578 /* ReactiveCocoa.framework.dSYM */,
-				CC462C402101B98D000A4578 /* ReactiveSwift.framework.dSYM */,
-				CC462C3E2101B978000A4578 /* Result.framework.dSYM */,
-			);
-			path = dSYMs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
