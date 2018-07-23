@@ -24,10 +24,6 @@
 		CC462C542101BB99000A4578 /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C502101BB99000A4578 /* UIStoryboard+.swift */; };
 		CC462C562101BC16000A4578 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C552101BC16000A4578 /* QRReaderView.swift */; };
 		CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC462C572101BC3D000A4578 /* QRReaderView.xib */; };
-		CC48F95E21052EBF00FC2480 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48F95C21052EBE00FC2480 /* CustomView.swift */; };
-		CC48F95F21052EBF00FC2480 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC48F95D21052EBF00FC2480 /* CustomView.xib */; };
-		CC48F9612105302C00FC2480 /* CustomField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC48F9602105302C00FC2480 /* CustomField.storyboard */; };
-		CC48F9632105306300FC2480 /* CustomFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48F9622105306300FC2480 /* CustomFieldViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,10 +62,6 @@
 		CC462C502101BB99000A4578 /* UIStoryboard+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
 		CC462C552101BC16000A4578 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		CC462C572101BC3D000A4578 /* QRReaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRReaderView.xib; sourceTree = "<group>"; };
-		CC48F95C21052EBE00FC2480 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		CC48F95D21052EBF00FC2480 /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
-		CC48F9602105302C00FC2480 /* CustomField.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomField.storyboard; sourceTree = "<group>"; };
-		CC48F9622105306300FC2480 /* CustomFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFieldViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +109,6 @@
 		CC462C292101B0E1000A4578 /* sample-ios-qrreader */ = {
 			isa = PBXGroup;
 			children = (
-				CC48F95C21052EBE00FC2480 /* CustomView.swift */,
-				CC48F95D21052EBF00FC2480 /* CustomView.xib */,
-				CC48F9602105302C00FC2480 /* CustomField.storyboard */,
-				CC48F9622105306300FC2480 /* CustomFieldViewController.swift */,
 				CC462C4D2101BB99000A4578 /* QRReader.storyboard */,
 				CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */,
 				CC462C572101BC3D000A4578 /* QRReaderView.xib */,
@@ -208,12 +196,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */,
-				CC48F9612105302C00FC2480 /* CustomField.storyboard in Resources */,
 				CC462C512101BB99000A4578 /* QRReader.storyboard in Resources */,
 				CC462C352101B0E1000A4578 /* LaunchScreen.storyboard in Resources */,
 				CC462C322101B0E1000A4578 /* Assets.xcassets in Resources */,
 				CC462C302101B0E1000A4578 /* Main.storyboard in Resources */,
-				CC48F95F21052EBF00FC2480 /* CustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,11 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC48F9632105306300FC2480 /* CustomFieldViewController.swift in Sources */,
 				CC462C562101BC16000A4578 /* QRReaderView.swift in Sources */,
 				CC462C542101BB99000A4578 /* UIStoryboard+.swift in Sources */,
 				CC462C532101BB99000A4578 /* Storyboard.swift in Sources */,
-				CC48F95E21052EBF00FC2480 /* CustomView.swift in Sources */,
 				CC462C2D2101B0E1000A4578 /* ViewController.swift in Sources */,
 				CC462C2B2101B0E1000A4578 /* AppDelegate.swift in Sources */,
 				CC462C522101BB99000A4578 /* QRReaderViewController.swift in Sources */,

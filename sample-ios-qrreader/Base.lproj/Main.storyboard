@@ -19,15 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bc3-do-Pbm">
-                                <rect key="frame" x="137" y="376" width="101" height="60"/>
+                                <rect key="frame" x="137" y="391" width="101" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugZ-Hw-ENW">
                                         <rect key="frame" x="0.0" y="0.0" width="101" height="30"/>
                                         <state key="normal" title="QR Code Read"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpz-D0-7au">
-                                        <rect key="frame" x="0.0" y="30" width="101" height="30"/>
-                                        <state key="normal" title="CustomView"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -40,7 +36,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="customViewButton" destination="Hpz-D0-7au" id="kvs-lf-W1O"/>
                         <outlet property="qrCodeReadButton" destination="ugZ-Hw-ENW" id="g5i-hv-cGd"/>
                     </connections>
                 </viewController>

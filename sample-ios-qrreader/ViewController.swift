@@ -14,7 +14,6 @@ import ReactiveCocoa
 class ViewController: UIViewController {
 
   @IBOutlet weak var qrCodeReadButton: UIButton!
-  @IBOutlet weak var customViewButton: UIButton!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,30 +31,22 @@ class ViewController: UIViewController {
       return SignalProducer.empty
       }, { (sender: UIButton) in
     })
-    customViewButton.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
-      self?.presentCustomView()
-      return SignalProducer.empty
-      }, { (sender: UIButton) in
-    })
   }
 
-  fileprivate func presentQRReader() {
-    guard let navigationController: UINavigationController = UIStoryboard(.QRReader).instantiateViewController() else { return }
-    present(navigationController, animated: true, completion: { [weak navigationController] in
-      guard let qrReaderViewController = navigationController?.topViewController as? QRReaderViewController else { return }
-      qrReaderViewController.qrString.signal
-        .take(during: qrReaderViewController.reactive.lifetime)
-        .observeValues { (qrString: String) in
-          print("qrString:\(qrString)")
-          navigationController?.dismiss(animated: true, completion: nil)
-      }
-    })
-  }
-  
-  fileprivate func presentCustomView() {
-    guard let navigationController: UINavigationController = UIStoryboard(.CustomField).instantiateViewController() else { return }
-    present(navigationController, animated: true, completion: nil)
-  }
-  
+    fileprivate func presentQRReader() {
+        guard let navigationController: UINavigationController = UIStoryboard(.QRReader).instantiateViewController() else { return }
+        present(navigationController, animated: true, completion: { [weak navigationController] in
+            guard let qrReaderViewController = navigationController?.topViewController as? QRReaderViewController else { return }
+            qrReaderViewController.qrString.signal
+                .take(duringLifetimeOf: qrReaderViewController)
+                .observeValues { (qrString: String) in
+                    print("qrString:\(qrString)")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.375) {
+                        navigationController?.dismiss(animated: true, completion: nil)
+                    }
+            }
+        })
+    }
+
 }
 

@@ -14,7 +14,6 @@ extension UIStoryboard : StoryboardNameable {
   enum StoryboardName : String {
     case Main
     case QRReader
-    case CustomField
   }
   
   convenience init(_ name: StoryboardName, bundle: Bundle? = nil) {
