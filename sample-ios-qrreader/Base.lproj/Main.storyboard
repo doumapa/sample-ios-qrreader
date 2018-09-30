@@ -43,7 +43,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="customViewButton" destination="Hpz-D0-7au" id="kvs-lf-W1O"/>
                         <outlet property="qrCodeReadButton" destination="ugZ-Hw-ENW" id="g5i-hv-cGd"/>
                         <outlet property="searchViewButton" destination="g12-TQ-XXp" id="lYF-97-PIt"/>
                     </connections>

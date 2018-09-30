@@ -133,6 +133,10 @@
 			children = (
 				CCE5E0A2215FD75000FE93D3 /* custom */,
 				CCE5E0A1215FD6EA00FE93D3 /* reader */,
+				CC462C4D2101BB99000A4578 /* QRReader.storyboard */,
+				CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */,
+				CC462C572101BC3D000A4578 /* QRReaderView.xib */,
+				CC462C552101BC16000A4578 /* QRReaderView.swift */,
 				CC462C4F2101BB99000A4578 /* Storyboard.swift */,
 				CC462C502101BB99000A4578 /* UIStoryboard+.swift */,
 				CCE5E0AD2160864300FE93D3 /* UITableView+.swift */,
@@ -246,12 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */,
-				CC48F9612105302C00FC2480 /* CustomField.storyboard in Resources */,
 				CC462C512101BB99000A4578 /* QRReader.storyboard in Resources */,
 				CC462C352101B0E1000A4578 /* LaunchScreen.storyboard in Resources */,
 				CC462C322101B0E1000A4578 /* Assets.xcassets in Resources */,
 				CC462C302101B0E1000A4578 /* Main.storyboard in Resources */,
-				CC48F95F21052EBF00FC2480 /* CustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

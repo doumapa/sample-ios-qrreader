@@ -187,6 +187,7 @@ extension QRReaderView : AVCaptureMetadataOutputObjectsDelegate {
                     self?.rectangleView.alpha = 1.0
                     self?.rectangleView.frame = qrCodeBounds
     }) { [weak self] (b: Bool) in
+      AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
       self?.qrString.value = qrStringValue
     }
   }
