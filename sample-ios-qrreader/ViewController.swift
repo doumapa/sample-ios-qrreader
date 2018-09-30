@@ -14,7 +14,6 @@ import ReactiveCocoa
 class ViewController: UIViewController {
 
   @IBOutlet weak var qrCodeReadButton: UIButton!
-  @IBOutlet weak var customViewButton: UIButton!
   @IBOutlet weak var searchViewButton: UIButton!
 
   override func viewDidLoad() {
@@ -30,11 +29,6 @@ class ViewController: UIViewController {
   fileprivate func bind() {
     qrCodeReadButton.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
       self?.presentQRReader()
-      return SignalProducer.empty
-      }, { (sender: UIButton) in
-    })
-    customViewButton.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
-      self?.presentCustomView()
       return SignalProducer.empty
       }, { (sender: UIButton) in
     })
@@ -58,11 +52,6 @@ class ViewController: UIViewController {
     })
   }
   
-  fileprivate func presentCustomView() {
-    guard let navigationController: UINavigationController = UIStoryboard(.CustomField).instantiateViewController() else { return }
-    present(navigationController, animated: true, completion: nil)
-  }
- 
   fileprivate func presentSearchView() {
     guard let navigationController: SearchNavigationController = UIStoryboard(.Main).instantiateViewController() else { return }
     present(navigationController, animated: true)
