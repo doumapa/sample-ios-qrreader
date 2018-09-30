@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var qrCodeReadButton: UIButton!
   @IBOutlet weak var customViewButton: UIButton!
+  @IBOutlet weak var searchViewButton: UIButton!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,10 +38,15 @@ class ViewController: UIViewController {
       return SignalProducer.empty
       }, { (sender: UIButton) in
     })
+    searchViewButton.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
+      self?.presentSearchView()
+      return SignalProducer.empty
+      }, { (sender: UIButton) in
+    })
   }
 
   fileprivate func presentQRReader() {
-    guard let navigationController: UINavigationController = UIStoryboard(.QRReader).instantiateViewController() else { return }
+    guard let navigationController: QRReaderNavigationController = UIStoryboard(.QRReader).instantiateViewController() else { return }
     present(navigationController, animated: true, completion: { [weak navigationController] in
       guard let qrReaderViewController = navigationController?.topViewController as? QRReaderViewController else { return }
       qrReaderViewController.qrString.signal
@@ -55,6 +61,11 @@ class ViewController: UIViewController {
   fileprivate func presentCustomView() {
     guard let navigationController: UINavigationController = UIStoryboard(.CustomField).instantiateViewController() else { return }
     present(navigationController, animated: true, completion: nil)
+  }
+ 
+  fileprivate func presentSearchView() {
+    guard let navigationController: SearchNavigationController = UIStoryboard(.Main).instantiateViewController() else { return }
+    present(navigationController, animated: true)
   }
   
 }

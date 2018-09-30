@@ -17,13 +17,13 @@ protocol StoryboardIdentifiable where Self: UIViewController {
     static var storyboardIdentifier: String { get }
 }
 
-extension StoryboardIdentifiable {
-    static var storyboardIdentifier: String {
-        get {
-            return String(describing: self)
-        }
-    }
-}
+//extension StoryboardIdentifiable {
+//    static var storyboardIdentifier: String {
+//        get {
+//            return String(describing: self)
+//        }
+//    }
+//}
 
 extension UIStoryboard {
     func instantiateViewController<T: StoryboardIdentifiable>() -> T? {
@@ -32,4 +32,10 @@ extension UIStoryboard {
 }
 
 extension UIViewController : StoryboardIdentifiable {
+  static var storyboardIdentifier: String {
+    get {
+      return String(describing: self)
+    }
+  }
+  
 }

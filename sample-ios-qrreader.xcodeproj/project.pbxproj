@@ -28,6 +28,13 @@
 		CC48F95F21052EBF00FC2480 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC48F95D21052EBF00FC2480 /* CustomView.xib */; };
 		CC48F9612105302C00FC2480 /* CustomField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC48F9602105302C00FC2480 /* CustomField.storyboard */; };
 		CC48F9632105306300FC2480 /* CustomFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48F9622105306300FC2480 /* CustomFieldViewController.swift */; };
+		CC513C332153FA970037BAE2 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC513C322153FA970037BAE2 /* Debug.swift */; };
+		CCE5E0A4215FD7AA00FE93D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */; };
+		CCE5E0A6215FD7C800FE93D3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */; };
+		CCE5E0A8215FE0DE00FE93D3 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A7215FE0DE00FE93D3 /* SearchViewModel.swift */; };
+		CCE5E0AA2160832600FE93D3 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A92160832600FE93D3 /* SearchViewCell.swift */; };
+		CCE5E0AC2160839800FE93D3 /* SearchViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0AB2160839800FE93D3 /* SearchViewCellModel.swift */; };
+		CCE5E0AE2160864300FE93D3 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0AD2160864300FE93D3 /* UITableView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +77,13 @@
 		CC48F95D21052EBF00FC2480 /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		CC48F9602105302C00FC2480 /* CustomField.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomField.storyboard; sourceTree = "<group>"; };
 		CC48F9622105306300FC2480 /* CustomFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFieldViewController.swift; sourceTree = "<group>"; };
+		CC513C322153FA970037BAE2 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		CCE5E0A7215FE0DE00FE93D3 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CCE5E0A92160832600FE93D3 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		CCE5E0AB2160839800FE93D3 /* SearchViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCellModel.swift; sourceTree = "<group>"; };
+		CCE5E0AD2160864300FE93D3 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,22 +131,23 @@
 		CC462C292101B0E1000A4578 /* sample-ios-qrreader */ = {
 			isa = PBXGroup;
 			children = (
-				CC48F95C21052EBE00FC2480 /* CustomView.swift */,
-				CC48F95D21052EBF00FC2480 /* CustomView.xib */,
-				CC48F9602105302C00FC2480 /* CustomField.storyboard */,
-				CC48F9622105306300FC2480 /* CustomFieldViewController.swift */,
-				CC462C4D2101BB99000A4578 /* QRReader.storyboard */,
-				CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */,
-				CC462C572101BC3D000A4578 /* QRReaderView.xib */,
-				CC462C552101BC16000A4578 /* QRReaderView.swift */,
+				CCE5E0A2215FD75000FE93D3 /* custom */,
+				CCE5E0A1215FD6EA00FE93D3 /* reader */,
 				CC462C4F2101BB99000A4578 /* Storyboard.swift */,
 				CC462C502101BB99000A4578 /* UIStoryboard+.swift */,
+				CCE5E0AD2160864300FE93D3 /* UITableView+.swift */,
 				CC462C2A2101B0E1000A4578 /* AppDelegate.swift */,
 				CC462C2C2101B0E1000A4578 /* ViewController.swift */,
 				CC462C2E2101B0E1000A4578 /* Main.storyboard */,
 				CC462C312101B0E1000A4578 /* Assets.xcassets */,
 				CC462C332101B0E1000A4578 /* LaunchScreen.storyboard */,
 				CC462C362101B0E1000A4578 /* Info.plist */,
+				CC513C322153FA970037BAE2 /* Debug.swift */,
+				CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */,
+				CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */,
+				CCE5E0A7215FE0DE00FE93D3 /* SearchViewModel.swift */,
+				CCE5E0A92160832600FE93D3 /* SearchViewCell.swift */,
+				CCE5E0AB2160839800FE93D3 /* SearchViewCellModel.swift */,
 			);
 			path = "sample-ios-qrreader";
 			sourceTree = "<group>";
@@ -145,6 +160,28 @@
 				CC462C452101B9D3000A4578 /* ReactiveCocoa.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCE5E0A1215FD6EA00FE93D3 /* reader */ = {
+			isa = PBXGroup;
+			children = (
+				CC462C4D2101BB99000A4578 /* QRReader.storyboard */,
+				CC462C4E2101BB99000A4578 /* QRReaderViewController.swift */,
+				CC462C572101BC3D000A4578 /* QRReaderView.xib */,
+				CC462C552101BC16000A4578 /* QRReaderView.swift */,
+			);
+			name = reader;
+			sourceTree = "<group>";
+		};
+		CCE5E0A2215FD75000FE93D3 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				CC48F95C21052EBE00FC2480 /* CustomView.swift */,
+				CC48F95D21052EBF00FC2480 /* CustomView.xib */,
+				CC48F9602105302C00FC2480 /* CustomField.storyboard */,
+				CC48F9622105306300FC2480 /* CustomFieldViewController.swift */,
+			);
+			name = custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +218,7 @@
 				TargetAttributes = {
 					CC462C262101B0E1000A4578 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -247,14 +285,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE5E0A4215FD7AA00FE93D3 /* SearchViewController.swift in Sources */,
 				CC48F9632105306300FC2480 /* CustomFieldViewController.swift in Sources */,
 				CC462C562101BC16000A4578 /* QRReaderView.swift in Sources */,
+				CCE5E0AE2160864300FE93D3 /* UITableView+.swift in Sources */,
 				CC462C542101BB99000A4578 /* UIStoryboard+.swift in Sources */,
+				CC513C332153FA970037BAE2 /* Debug.swift in Sources */,
 				CC462C532101BB99000A4578 /* Storyboard.swift in Sources */,
+				CCE5E0A8215FE0DE00FE93D3 /* SearchViewModel.swift in Sources */,
 				CC48F95E21052EBF00FC2480 /* CustomView.swift in Sources */,
+				CCE5E0AC2160839800FE93D3 /* SearchViewCellModel.swift in Sources */,
+				CCE5E0AA2160832600FE93D3 /* SearchViewCell.swift in Sources */,
 				CC462C2D2101B0E1000A4578 /* ViewController.swift in Sources */,
 				CC462C2B2101B0E1000A4578 /* AppDelegate.swift in Sources */,
 				CC462C522101BB99000A4578 /* QRReaderViewController.swift in Sources */,
+				CCE5E0A6215FD7C800FE93D3 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,12 +376,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -385,11 +431,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -398,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7T2Z6RR4DM;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -411,7 +459,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quietbranchstudio.sample-ios-qrreader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -420,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7T2Z6RR4DM;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -433,7 +483,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quietbranchstudio.sample-ios-qrreader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -33,7 +33,7 @@ class CustomView: UIView {
         didSet {
             UIView.animate(withDuration: 0.175,
                            delay: 0.0,
-                           options: [UIViewAnimationOptions.curveEaseInOut],
+                           options: [UIView.AnimationOptions.curveEaseInOut],
                            animations: {
                             self.messageLabel.isHidden = self.hideError
             },

@@ -140,7 +140,7 @@ class QRReaderView: UIView {
     previewView.addSubview(effectView)
     UIView.animate(withDuration: 0.8,
                    delay: 0,
-                   options: [UIViewAnimationOptions.curveEaseInOut],
+                   options: [UIView.AnimationOptions.curveEaseInOut],
                    animations: {
                     effectView.alpha = 0
     },

@@ -31,17 +31,18 @@ class QRReaderViewController: UIViewController {
     bind()
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    qrReaderView.startCaptureSession()
-  }
-  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
 
   fileprivate func bind() {
+    reactive.viewDidAppear
+      .take(first: 1)
+      .observeCompleted { [weak self] in
+        self?.qrReaderView.startCaptureSession()
+    }
+
     doneBarButtonItem.reactive.pressed = CocoaAction(Action<Void, Void, NoError> { [weak self] in
       self?.qrReaderView.stopCaptureSession()
       guard let navigationController = self?.navigationController else { return SignalProducer.empty }
@@ -62,3 +63,5 @@ class QRReaderViewController: UIViewController {
    */
 
 }
+
+class QRReaderNavigationController: UINavigationController {}
