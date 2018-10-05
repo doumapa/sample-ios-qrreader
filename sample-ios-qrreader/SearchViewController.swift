@@ -26,6 +26,14 @@ class SearchViewController: UIViewController {
     }
     */
 
+  fileprivate let sections = [
+    "新規店舗",
+    "入金する",
+    "食べる",
+    "遊ぶ",
+    "暮らす",
+  ]
+  
   fileprivate let data = [
     "本日は晴天なり 0",
     "本日は晴天なり 1",
@@ -58,6 +66,9 @@ class SearchViewController: UIViewController {
     }
     
     var viewModel = SearchViewModel()
+    viewModel.numberOfSections = { [weak self] (in tableView: UITableView) -> Int in
+      return (self?.sections.count)!
+    }
     viewModel.numberOfRowsInSection = { [weak self] (_ section: Int) -> Int in
       return (self?.data.count)!
     }

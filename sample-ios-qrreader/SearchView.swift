@@ -65,6 +65,11 @@ class SearchView: UIView {
 
 extension SearchView: UITableViewDataSource {
 
+  func numberOfSections(in tableView: UITableView) -> Int {
+    guard let viewModel = viewModel, let numberOfSections = viewModel.numberOfSections else { return 0 }
+    return numberOfSections(in: tableView)
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard let viewModel = viewModel, let numberOfRowsInSection = viewModel.numberOfRowsInSection else { return 0 }
     return numberOfRowsInSection(section)
@@ -78,6 +83,10 @@ extension SearchView: UITableViewDataSource {
 }
 
 extension SearchView: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return nil
+  }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
