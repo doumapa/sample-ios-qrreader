@@ -12,6 +12,15 @@ import ReactiveCocoa
 
 class SearchViewCell: UITableViewCell {
 
+  // MARK: - Class properties
+  
+  static let estimateSize: CGSize = CGSize(width: 375, height: 44)
+  class var height: CGFloat {
+    get {
+      return estimateSize.height * (UIScreen.main.bounds.width / estimateSize.width)
+    }
+  }
+
   var cellModel: SearchViewCellModel? {
     didSet {
       bind()
@@ -20,16 +29,16 @@ class SearchViewCell: UITableViewCell {
   
   // MARK: -
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    
+    // Configure the view for the selected state
+  }
 
   // MARK: -
 
@@ -38,4 +47,14 @@ class SearchViewCell: UITableViewCell {
     textLabel?.reactive.text <~ cellModel.titleText
   }
 
+}
+
+struct SearchViewCellModel {
+  
+  let titleText: MutableProperty<String> = MutableProperty("")
+  
+  init(titleText: String) {
+    self.titleText.value = titleText
+  }
+  
 }

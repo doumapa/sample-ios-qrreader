@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Result
+import ReactiveSwift
 
 class SearchView: UIView {
 
@@ -42,6 +44,7 @@ class SearchView: UIView {
     let searchBar = searchController.searchBar
     searchBar.placeholder = "お店を検索する"
 
+    tableView.register(TableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: TableViewHeaderView.tableViewHeaderFooterViewIdentifier)
     if #available(iOS 11.0, *) {
     } else {
       tableView.tableHeaderView = searchBar
@@ -67,7 +70,7 @@ extension SearchView: UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
     guard let viewModel = viewModel, let numberOfSections = viewModel.numberOfSections else { return 0 }
-    return numberOfSections(in: tableView)
+    return numberOfSections()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,12 +87,40 @@ extension SearchView: UITableViewDataSource {
 
 extension SearchView: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard let viewModel = viewModel, let heightForHeaderInSection = viewModel.heightForHeaderInSection else { return 0 }
+    return heightForHeaderInSection(section)
+  }
+  
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    return nil
+    guard let viewModel = viewModel, let viewForHeaderInSection = viewModel.viewForHeaderInSection else { return nil }
+    return viewForHeaderInSection(tableView, section)
+  }
+
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    guard let viewModel = viewModel, let heightForRowAtIndexPath = viewModel.heightForRowAtIndexPath else { return 0 }
+    return heightForRowAtIndexPath(indexPath)
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    guard let viewModel = viewModel, let didSelectRowAtIndexPathAction = viewModel.didSelectRowAtIndexPathAction else { return }
+    didSelectRowAtIndexPathAction.apply(indexPath).start()
   }
   
+}
+
+struct SearchViewModel {
+
+  var didSelectRowAtIndexPathAction: Action<IndexPath, Void, NoError>?
+  
+  var numberOfSections: (() -> Int)?
+  var numberOfRowsInSection: ((_ section: Int) -> Int)?
+  
+  var heightForHeaderInSection: ((_ section: Int) -> CGFloat)?
+  var viewForHeaderInSection: ((_ tableView: UITableView, _ section: Int) -> UIView?)?
+  
+  var heightForRowAtIndexPath: ((_ indexPath: IndexPath) -> CGFloat)?
+  var cellForRowAtIndexPath: ((_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell)?
+
 }
