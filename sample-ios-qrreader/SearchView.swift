@@ -10,7 +10,9 @@ import UIKit
 import Result
 import ReactiveSwift
 
-class SearchView: UIView {
+class SearchView: UIView, ViewModelable {
+  
+  typealias T = SearchViewModel
 
   @IBOutlet weak var tableView: UITableView!
   
@@ -24,6 +26,8 @@ class SearchView: UIView {
 
   var searchController: UISearchController!
   
+  fileprivate var heightForCells: [IndexPath:CGFloat] = [:]
+
   // MARK: -
 
   override func awakeFromNib() {
@@ -44,7 +48,6 @@ class SearchView: UIView {
     let searchBar = searchController.searchBar
     searchBar.placeholder = "お店を検索する"
 
-    tableView.register(TableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: TableViewHeaderView.tableViewHeaderFooterViewIdentifier)
     if #available(iOS 11.0, *) {
     } else {
       tableView.tableHeaderView = searchBar
@@ -86,17 +89,21 @@ extension SearchView: UITableViewDataSource {
 }
 
 extension SearchView: UITableViewDelegate {
-  
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    guard let viewModel = viewModel, let heightForHeaderInSection = viewModel.heightForHeaderInSection else { return 0 }
-    return heightForHeaderInSection(section)
-  }
-  
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    guard let viewModel = viewModel, let viewForHeaderInSection = viewModel.viewForHeaderInSection else { return nil }
-    return viewForHeaderInSection(tableView, section)
-  }
 
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    print("Cell height: \(cell.frame.height)")
+    if !heightForCells.keys.contains(indexPath) {
+      heightForCells[indexPath] = cell.frame.height
+    }
+  }
+  
+//  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+////    guard let height = heightForCells[indexPath] else {
+////      return UITableView.automaticDimension
+////    }
+//    return SearchViewCell.height
+//  }
+  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     guard let viewModel = viewModel, let heightForRowAtIndexPath = viewModel.heightForRowAtIndexPath else { return 0 }
     return heightForRowAtIndexPath(indexPath)
@@ -116,9 +123,6 @@ struct SearchViewModel {
   
   var numberOfSections: (() -> Int)?
   var numberOfRowsInSection: ((_ section: Int) -> Int)?
-  
-  var heightForHeaderInSection: ((_ section: Int) -> CGFloat)?
-  var viewForHeaderInSection: ((_ tableView: UITableView, _ section: Int) -> UIView?)?
   
   var heightForRowAtIndexPath: ((_ indexPath: IndexPath) -> CGFloat)?
   var cellForRowAtIndexPath: ((_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell)?

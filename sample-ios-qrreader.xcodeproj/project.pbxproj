@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0824F22170A2E000C006B7 /* SearchViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0824F12170A2E000C006B7 /* SearchViewSectionCell.swift */; };
+		CC0824F42170B05600C006B7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0824F32170B05600C006B7 /* Protocols.swift */; };
 		CC25414921038B7600238685 /* Result.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414821038B7500238685 /* Result.framework.dSYM */; };
 		CC25414B21038B9100238685 /* ReactiveSwift.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */; };
 		CC25414D21038BBA00238685 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */; };
@@ -25,8 +27,6 @@
 		CC462C562101BC16000A4578 /* QRReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC462C552101BC16000A4578 /* QRReaderView.swift */; };
 		CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC462C572101BC3D000A4578 /* QRReaderView.xib */; };
 		CC513C332153FA970037BAE2 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC513C322153FA970037BAE2 /* Debug.swift */; };
-		CCCD3770216C700500174C6C /* TableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCCD376F216C700500174C6C /* TableViewHeaderView.xib */; };
-		CCCD3772216C707700174C6C /* TableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCD3771216C707700174C6C /* TableViewHeaderView.swift */; };
 		CCE5E0A4215FD7AA00FE93D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */; };
 		CCE5E0A6215FD7C800FE93D3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */; };
 		CCE5E0AA2160832600FE93D3 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5E0A92160832600FE93D3 /* SearchViewCell.swift */; };
@@ -50,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC0824F12170A2E000C006B7 /* SearchViewSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSectionCell.swift; sourceTree = "<group>"; };
+		CC0824F32170B05600C006B7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		CC25414821038B7500238685 /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Result.framework.dSYM; path = Carthage/Build/iOS/Result.framework.dSYM; sourceTree = "<group>"; };
 		CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveSwift.framework.dSYM; path = Carthage/Build/iOS/ReactiveSwift.framework.dSYM; sourceTree = "<group>"; };
 		CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
@@ -70,8 +72,6 @@
 		CC462C552101BC16000A4578 /* QRReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderView.swift; sourceTree = "<group>"; };
 		CC462C572101BC3D000A4578 /* QRReaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRReaderView.xib; sourceTree = "<group>"; };
 		CC513C322153FA970037BAE2 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
-		CCCD376F216C700500174C6C /* TableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewHeaderView.xib; sourceTree = "<group>"; };
-		CCCD3771216C707700174C6C /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
 		CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		CCE5E0A92160832600FE93D3 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
@@ -152,11 +152,11 @@
 		CCCD376E216C6C9E00174C6C /* search */ = {
 			isa = PBXGroup;
 			children = (
+				CC0824F32170B05600C006B7 /* Protocols.swift */,
 				CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */,
 				CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */,
+				CC0824F12170A2E000C006B7 /* SearchViewSectionCell.swift */,
 				CCE5E0A92160832600FE93D3 /* SearchViewCell.swift */,
-				CCCD376F216C700500174C6C /* TableViewHeaderView.xib */,
-				CCCD3771216C707700174C6C /* TableViewHeaderView.swift */,
 			);
 			name = search;
 			sourceTree = "<group>";
@@ -236,7 +236,6 @@
 				CC462C582101BC3D000A4578 /* QRReaderView.xib in Resources */,
 				CC462C512101BB99000A4578 /* QRReader.storyboard in Resources */,
 				CC462C352101B0E1000A4578 /* LaunchScreen.storyboard in Resources */,
-				CCCD3770216C700500174C6C /* TableViewHeaderView.xib in Resources */,
 				CC462C322101B0E1000A4578 /* Assets.xcassets in Resources */,
 				CC462C302101B0E1000A4578 /* Main.storyboard in Resources */,
 			);
@@ -278,10 +277,11 @@
 				CC462C542101BB99000A4578 /* UIStoryboard+.swift in Sources */,
 				CC513C332153FA970037BAE2 /* Debug.swift in Sources */,
 				CC462C532101BB99000A4578 /* Storyboard.swift in Sources */,
-				CCCD3772216C707700174C6C /* TableViewHeaderView.swift in Sources */,
 				CCE5E0AA2160832600FE93D3 /* SearchViewCell.swift in Sources */,
 				CC462C2D2101B0E1000A4578 /* ViewController.swift in Sources */,
 				CC462C2B2101B0E1000A4578 /* AppDelegate.swift in Sources */,
+				CC0824F42170B05600C006B7 /* Protocols.swift in Sources */,
+				CC0824F22170A2E000C006B7 /* SearchViewSectionCell.swift in Sources */,
 				CC462C522101BB99000A4578 /* QRReaderViewController.swift in Sources */,
 				CCE5E0A6215FD7C800FE93D3 /* SearchView.swift in Sources */,
 			);

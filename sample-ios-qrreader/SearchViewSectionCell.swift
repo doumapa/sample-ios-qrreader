@@ -1,8 +1,8 @@
 //
-//  SearchViewCell.swift
+//  SearchViewSectionCell.swift
 //  sample-ios-qrreader
 //
-//  Created by makoto kaneko on 2018/09/30.
+//  Created by makoto.kaneko on 2018/10/12.
 //  Copyright © 2018 makoto.kaneko. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
-class SearchViewCell: UITableViewCell, CellModelable {
+class SearchViewSectionCell: UITableViewCell, CellModelable {
 
-  typealias T = SearchViewCellModel
+  typealias T = SearchViewSectionCellModel
 
   // MARK: - Class properties
   
@@ -22,15 +22,15 @@ class SearchViewCell: UITableViewCell, CellModelable {
       return estimateSize.height * (UIScreen.main.bounds.width / estimateSize.width)
     }
   }
-
-  var cellModel: SearchViewCellModel? {
+  
+  var cellModel: SearchViewSectionCellModel? {
     didSet {
       bind()
     }
   }
-  
+
   // MARK: -
-  
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -43,17 +43,18 @@ class SearchViewCell: UITableViewCell, CellModelable {
   }
 
   // MARK: -
-
+  
   fileprivate func bind() {
     guard let cellModel = cellModel else { return }
     textLabel?.reactive.text <~ cellModel.titleText
   }
-
+  
 }
 
-struct SearchViewCellModel {
+struct SearchViewSectionCellModel {
   
   let titleText: MutableProperty<String> = MutableProperty("")
+  var isExpand: Bool = false
   
   init(titleText: String) {
     self.titleText.value = titleText
