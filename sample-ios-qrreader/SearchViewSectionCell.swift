@@ -10,9 +10,7 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
-class SearchViewSectionCell: UITableViewCell, CellModelable {
-
-  typealias T = SearchViewSectionCellModel
+class SearchViewSectionCell: UITableViewCell {
 
   // MARK: - Class properties
   
@@ -54,7 +52,7 @@ class SearchViewSectionCell: UITableViewCell, CellModelable {
 struct SearchViewSectionCellModel {
   
   let titleText: MutableProperty<String> = MutableProperty("")
-  var isExpand: Bool = false
+  var isExpand: Bool = true
   
   init(titleText: String) {
     self.titleText.value = titleText

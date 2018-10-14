@@ -11,23 +11,25 @@ import Result
 import ReactiveSwift
 
 class SearchViewController: UIViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    configure()
+  }
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destination.
+   // Pass the selected object to the new view controller.
+   }
+   */
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        configure()
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  // MARK: -
+  
   fileprivate let rows = [
     [
       "新規店舗",
@@ -71,6 +73,10 @@ class SearchViewController: UIViewController {
       ],
     ]
   
+  fileprivate var sectionCellModels: [SearchViewSectionCellModel] = []
+
+  // MARK: -
+
   fileprivate func configure() {
     definesPresentationContext = true
     if #available(iOS 11.0, *) {
@@ -78,28 +84,67 @@ class SearchViewController: UIViewController {
       navigationItem.hidesSearchBarWhenScrolling = false
       navigationItem.searchController = (view as! SearchView).searchController
     }
+    
+    (view as! SearchView).viewModel = SearchViewModelBuilder()
+    
+    for item in rows {
+      sectionCellModels.append(SearchViewSectionCellModel(titleText: item[0]))
+    }
+  }
 
+  fileprivate func SearchViewModelBuilder() -> SearchViewModel {
     var viewModel = SearchViewModel()
     viewModel.numberOfSections = { [weak self] () -> Int in
       return (self?.rows.count)!
     }
     viewModel.numberOfRowsInSection = { [weak self] (_ section: Int) -> Int in
+      
       return (self?.rows[section].count)!
     }
-
+    
     viewModel.heightForRowAtIndexPath = { (_ indexPath: IndexPath) -> CGFloat in
-      return indexPath.row > 0 ? SearchViewCell.height : SearchViewSectionCell.height
+      return indexPath.row == 0 ? SearchViewSectionCell.height : SearchViewCell.height
     }
     viewModel.cellForRowAtIndexPath = { [weak self] (_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell in
-      let cell: SearchViewCell = tableView.dequeueReusableCell(for: indexPath)
-      (cell as CellModelable).cellModel = indexPath.row > 0 ? SearchViewCellModel(titleText: (self?.rows[indexPath.section][indexPath.row])!)
-      : SearchViewSectionCellModel(titleText: (self?.rows[indexPath.section][indexPath.row])!)
-      return cell
+      if indexPath.row == 0 {
+        let cell: SearchViewSectionCell = tableView.dequeueReusableCell(for: indexPath)
+        let cellModel = SearchViewSectionCellModel(titleText: (self?.rows[indexPath.section][indexPath.row])!)
+        self?.sectionCellModels.append(cellModel)
+        cell.cellModel = cellModel
+        return cell
+      } else {
+        let cell: SearchViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.cellModel = SearchViewCellModel(titleText: (self?.rows[indexPath.section][indexPath.row])!)
+        return cell
+      }
+    }
+
+    viewModel.didSelectRowAtIndexPathAction = Action<IndexPath, Void, NoError> { (indexPath: IndexPath) -> SignalProducer<Void, NoError> in
+      return SignalProducer<Void, NoError> { [weak self] observable, _ in
+        defer {
+          observable.sendCompleted()
+        }
+        guard let me = self else { return }
+        me.sectionCellModels[indexPath.section].isExpand = !me.sectionCellModels[indexPath.section].isExpand
+        if me.sectionCellModels[indexPath.section].isExpand {
+//          [tableView beginUpdates];
+//          [tableView insertRowsAtIndexPaths:makeIndexPaths(NSMakeRange(1, [items count] + 1), [indexPath section])
+//            withRowAnimation:UITableViewRowAnimationFade];
+//          [tableView endUpdates];
+          
+        } else {
+//          [tableView beginUpdates];
+//          [tableView deleteRowsAtIndexPaths:makeIndexPaths(NSMakeRange(1, [items count] + 1), [indexPath section])
+//            withRowAnimation:UITableViewRowAnimationFade];
+//          [tableView endUpdates];
+
+        }
+      }
     }
     
-    (view as! ViewModelable).viewModel = viewModel
+    return viewModel
   }
-
+  
 }
 
 class SearchNavigationController: UINavigationController {}

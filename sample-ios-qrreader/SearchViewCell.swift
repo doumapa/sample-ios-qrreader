@@ -10,9 +10,7 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
-class SearchViewCell: UITableViewCell, CellModelable {
-
-  typealias T = SearchViewCellModel
+class SearchViewCell: UITableViewCell {
 
   // MARK: - Class properties
   

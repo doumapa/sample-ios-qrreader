@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CC0824F22170A2E000C006B7 /* SearchViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0824F12170A2E000C006B7 /* SearchViewSectionCell.swift */; };
-		CC0824F42170B05600C006B7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0824F32170B05600C006B7 /* Protocols.swift */; };
 		CC25414921038B7600238685 /* Result.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414821038B7500238685 /* Result.framework.dSYM */; };
 		CC25414B21038B9100238685 /* ReactiveSwift.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */; };
 		CC25414D21038BBA00238685 /* ReactiveCocoa.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */; };
@@ -51,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		CC0824F12170A2E000C006B7 /* SearchViewSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSectionCell.swift; sourceTree = "<group>"; };
-		CC0824F32170B05600C006B7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		CC25414821038B7500238685 /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Result.framework.dSYM; path = Carthage/Build/iOS/Result.framework.dSYM; sourceTree = "<group>"; };
 		CC25414A21038B9100238685 /* ReactiveSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveSwift.framework.dSYM; path = Carthage/Build/iOS/ReactiveSwift.framework.dSYM; sourceTree = "<group>"; };
 		CC25414C21038BB900238685 /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveCocoa.framework.dSYM; path = Carthage/Build/iOS/ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 		CCCD376E216C6C9E00174C6C /* search */ = {
 			isa = PBXGroup;
 			children = (
-				CC0824F32170B05600C006B7 /* Protocols.swift */,
 				CCE5E0A3215FD7AA00FE93D3 /* SearchViewController.swift */,
 				CCE5E0A5215FD7C800FE93D3 /* SearchView.swift */,
 				CC0824F12170A2E000C006B7 /* SearchViewSectionCell.swift */,
@@ -280,7 +277,6 @@
 				CCE5E0AA2160832600FE93D3 /* SearchViewCell.swift in Sources */,
 				CC462C2D2101B0E1000A4578 /* ViewController.swift in Sources */,
 				CC462C2B2101B0E1000A4578 /* AppDelegate.swift in Sources */,
-				CC0824F42170B05600C006B7 /* Protocols.swift in Sources */,
 				CC0824F22170A2E000C006B7 /* SearchViewSectionCell.swift in Sources */,
 				CC462C522101BB99000A4578 /* QRReaderViewController.swift in Sources */,
 				CCE5E0A6215FD7C800FE93D3 /* SearchView.swift in Sources */,
