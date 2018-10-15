@@ -23,21 +23,10 @@ extension UITableView {
     return dequeueReusableCell(withIdentifier: T.tableViewCellIdentifier, for: indexPath) as! T
   }
 
-  func dequeueReusableHeaderFooterView<T: TableViewHeaderFooterViewIdentifiable>() -> T? {
-    return dequeueReusableHeaderFooterView(withIdentifier: T.tableViewHeaderFooterViewIdentifier) as? T
-  }
 }
 
 extension UITableViewCell: TableViewCellIdentifiable {
   static var tableViewCellIdentifier: String {
-    get {
-      return String(describing: self)
-    }
-  }
-}
-
-extension UITableViewHeaderFooterView: TableViewHeaderFooterViewIdentifiable {
-  static var tableViewHeaderFooterViewIdentifier: String {
     get {
       return String(describing: self)
     }

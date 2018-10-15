@@ -10,10 +10,8 @@ import UIKit
 import Result
 import ReactiveSwift
 
-class SearchView: UIView, ViewModelable {
+class SearchView: UIView {
   
-  typealias T = SearchViewModel
-
   @IBOutlet weak var tableView: UITableView!
   
   // MARK: -
