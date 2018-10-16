@@ -64,9 +64,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6HF-8y-tOG" id="CpH-Rk-jYD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mj0-mb-bzF">
+                                                    <rect key="frame" x="15" y="11.333333333333336" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mj0-mb-bzF" secondAttribute="trailing" constant="20" symbolic="YES" id="aUo-MH-9jr"/>
+                                                <constraint firstItem="Mj0-mb-bzF" firstAttribute="leading" secondItem="CpH-Rk-jYD" secondAttribute="leadingMargin" id="r0Z-Zs-he3"/>
+                                                <constraint firstItem="Mj0-mb-bzF" firstAttribute="centerY" secondItem="CpH-Rk-jYD" secondAttribute="centerY" id="w85-Gq-cyQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Mj0-mb-bzF" id="9xi-nu-bgq"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchViewCell" id="aw1-lW-Icw" customClass="SearchViewCell" customModule="sample_ios_qrreader" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -74,7 +90,24 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aw1-lW-Icw" id="Sqs-Io-vgX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhb-se-MMS">
+                                                    <rect key="frame" x="15" y="11.333333333333336" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hhb-se-MMS" firstAttribute="centerY" secondItem="Sqs-Io-vgX" secondAttribute="centerY" id="JTa-a9-848"/>
+                                                <constraint firstItem="hhb-se-MMS" firstAttribute="leading" secondItem="Sqs-Io-vgX" secondAttribute="leadingMargin" id="Nyl-hr-ORf"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hhb-se-MMS" secondAttribute="trailing" constant="20" symbolic="YES" id="vJO-g3-Jff"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="hhb-se-MMS" id="M8G-Jd-URb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

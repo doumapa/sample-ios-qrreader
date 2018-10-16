@@ -85,59 +85,96 @@ class SearchViewController: UIViewController {
       navigationItem.searchController = (view as! SearchView).searchController
     }
     
-    (view as! SearchView).viewModel = SearchViewModelBuilder()
-    
-    for item in rows {
-      sectionCellModels.append(SearchViewSectionCellModel(titleText: item[0]))
+    (view as! SearchView).viewModel = searchViewModelBuilder()
+
+    sectionCellModels = rows.map { (items: [String]) -> SearchViewSectionCellModel in
+      return SearchViewSectionCellModel(titleText: items[0])
     }
   }
 
-  fileprivate func SearchViewModelBuilder() -> SearchViewModel {
+  fileprivate func searchViewModelBuilder() -> SearchViewModel {
     var viewModel = SearchViewModel()
-    viewModel.numberOfSections = { [weak self] () -> Int in
-      return (self?.rows.count)!
+    viewModel.numberOfSectionsAction = Action<Void, Int, NoError> { () -> SignalProducer<Int, NoError> in
+      return SignalProducer<Int, NoError> { [weak self] observable, _ in
+        defer {
+          observable.sendCompleted()
+        }
+        guard let me = self else {
+          observable.send(value: 0)
+          return
+        }
+        observable.send(value: me.rows.count)
+      }
     }
-    viewModel.numberOfRowsInSection = { [weak self] (_ section: Int) -> Int in
-      
-      return (self?.rows[section].count)!
+    viewModel.numberOfRowsInSectionAction = Action<Int, Int, NoError> { (section: Int) -> SignalProducer<Int, NoError> in
+      return SignalProducer<Int, NoError> { [weak self] observable, _ in
+        defer {
+          observable.sendCompleted()
+        }
+        guard let me = self else {
+          observable.send(value: 0)
+          return
+        }
+        observable.send(value: me.sectionCellModels[section].isExpand ? me.rows[section].count : 1)
+      }
     }
     
-    viewModel.heightForRowAtIndexPath = { (_ indexPath: IndexPath) -> CGFloat in
-      return indexPath.row == 0 ? SearchViewSectionCell.height : SearchViewCell.height
-    }
-    viewModel.cellForRowAtIndexPath = { [weak self] (_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell in
-      if indexPath.row == 0 {
-        let cell: SearchViewSectionCell = tableView.dequeueReusableCell(for: indexPath)
-        let cellModel = SearchViewSectionCellModel(titleText: (self?.rows[indexPath.section][indexPath.row])!)
-        self?.sectionCellModels.append(cellModel)
-        cell.cellModel = cellModel
-        return cell
-      } else {
-        let cell: SearchViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.cellModel = SearchViewCellModel(titleText: (self?.rows[indexPath.section][indexPath.row])!)
-        return cell
+    viewModel.heightForRowAtIndexPathAction = Action<IndexPath, CGFloat, NoError> { (indexPath: IndexPath) -> SignalProducer<CGFloat, NoError> in
+      return SignalProducer<CGFloat, NoError> { [weak self] observable, _ in
+        defer {
+          observable.sendCompleted()
+        }
+        guard let me = self else {
+          observable.send(value: UITableView.automaticDimension)
+          return
+        }
+        observable.send(value: indexPath.row == 0 ? SearchViewSectionCell.height : SearchViewCell.height)
       }
     }
 
-    viewModel.didSelectRowAtIndexPathAction = Action<IndexPath, Void, NoError> { (indexPath: IndexPath) -> SignalProducer<Void, NoError> in
+    viewModel.cellForRowAtIndexPathAction = Action<(UITableView, IndexPath), UITableViewCell, NoError> { (tableView: UITableView,  indexPath: IndexPath) -> SignalProducer<UITableViewCell, NoError> in
+      return SignalProducer<UITableViewCell, NoError> { [weak self] observable, _ in
+        defer {
+          observable.sendCompleted()
+        }
+        guard let me = self else {
+          observable.send(value: UITableViewCell())
+          return
+        }
+        if indexPath.row == 0 {
+          let cell: SearchViewSectionCell = tableView.dequeueReusableCell(for: indexPath)
+          cell.cellModel = me.sectionCellModels[indexPath.section]
+          observable.send(value: cell)
+        } else {
+          let cell: SearchViewCell = tableView.dequeueReusableCell(for: indexPath)
+          cell.cellModel = SearchViewCellModel(titleText: me.rows[indexPath.section][indexPath.row])
+          observable.send(value: cell)
+        }
+      }
+    }
+
+    viewModel.didSelectRowAtIndexPathAction = Action<UITableView, Void, NoError> { (tableView: UITableView) -> SignalProducer<Void, NoError> in
       return SignalProducer<Void, NoError> { [weak self] observable, _ in
         defer {
           observable.sendCompleted()
         }
-        guard let me = self else { return }
+        guard let me = self,
+          let indexPath = tableView.indexPathForSelectedRow else { return }
         me.sectionCellModels[indexPath.section].isExpand = !me.sectionCellModels[indexPath.section].isExpand
         if me.sectionCellModels[indexPath.section].isExpand {
-//          [tableView beginUpdates];
-//          [tableView insertRowsAtIndexPaths:makeIndexPaths(NSMakeRange(1, [items count] + 1), [indexPath section])
-//            withRowAnimation:UITableViewRowAnimationFade];
-//          [tableView endUpdates];
-          
+          tableView.beginUpdates()
+          tableView.insertRows(at: (1..<me.rows[indexPath.section].count).map { (n: Int) -> IndexPath in
+            return IndexPath(row: n, section: indexPath.section)
+            },
+                               with: UITableView.RowAnimation.fade)
+          tableView.endUpdates()
         } else {
-//          [tableView beginUpdates];
-//          [tableView deleteRowsAtIndexPaths:makeIndexPaths(NSMakeRange(1, [items count] + 1), [indexPath section])
-//            withRowAnimation:UITableViewRowAnimationFade];
-//          [tableView endUpdates];
-
+          tableView.beginUpdates()
+          tableView.deleteRows(at: (1..<me.rows[indexPath.section].count).map { (n: Int) -> IndexPath in
+            return IndexPath(row: n, section: indexPath.section)
+            },
+                               with: UITableView.RowAnimation.fade)
+          tableView.endUpdates()
         }
       }
     }

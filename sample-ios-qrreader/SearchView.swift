@@ -24,7 +24,7 @@ class SearchView: UIView {
 
   var searchController: UISearchController!
   
-  fileprivate var heightForCells: [IndexPath:CGFloat] = [:]
+  //fileprivate var heightForCells: [IndexPath:CGFloat] = [:]
 
   // MARK: -
 
@@ -70,30 +70,45 @@ class SearchView: UIView {
 extension SearchView: UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
-    guard let viewModel = viewModel, let numberOfSections = viewModel.numberOfSections else { return 0 }
-    return numberOfSections()
+    guard let viewModel = viewModel, let numberOfSectionsAction = viewModel.numberOfSectionsAction else { return 0 }
+    var number = 0
+    numberOfSectionsAction.apply().startWithResult { (result: Result<Int, ActionError<NoError>>) in
+      guard let value = result.value else { return }
+      number = value
+    }
+    return number
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let viewModel = viewModel, let numberOfRowsInSection = viewModel.numberOfRowsInSection else { return 0 }
-    return numberOfRowsInSection(section)
+    guard let viewModel = viewModel, let numberOfRowsInSectionAction = viewModel.numberOfRowsInSectionAction else { return 0 }
+    var number = 0
+    numberOfRowsInSectionAction.apply(section).startWithResult { (result: Result<Int, ActionError<NoError>>) in
+      guard let value = result.value else { return }
+      number = value
+    }
+    return number
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let viewModel = viewModel, let cellForRowAtIndexPath = viewModel.cellForRowAtIndexPath else { return UITableViewCell() }
-    return cellForRowAtIndexPath(tableView, indexPath)
+    guard let viewModel = viewModel, let cellForRowAtIndexPathAction = viewModel.cellForRowAtIndexPathAction else { return UITableViewCell() }
+    var cell = UITableViewCell()
+    cellForRowAtIndexPathAction.apply((tableView, indexPath)).startWithResult { (result: Result<UITableViewCell, ActionError<NoError>>) in
+      guard let value = result.value else { return }
+      cell = value
+    }
+    return cell
   }
 
 }
 
 extension SearchView: UITableViewDelegate {
 
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    print("Cell height: \(cell.frame.height)")
-    if !heightForCells.keys.contains(indexPath) {
-      heightForCells[indexPath] = cell.frame.height
-    }
-  }
+//  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//    print("Cell height: \(cell.frame.height)")
+//    if !heightForCells.keys.contains(indexPath) {
+//      heightForCells[indexPath] = cell.frame.height
+//    }
+//  }
   
 //  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 ////    guard let height = heightForCells[indexPath] else {
@@ -103,26 +118,32 @@ extension SearchView: UITableViewDelegate {
 //  }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    guard let viewModel = viewModel, let heightForRowAtIndexPath = viewModel.heightForRowAtIndexPath else { return 0 }
-    return heightForRowAtIndexPath(indexPath)
+    guard let viewModel = viewModel, let heightForRowAtIndexPathAction = viewModel.heightForRowAtIndexPathAction else { return 0 }
+    var height = CGFloat(0.0)
+    heightForRowAtIndexPathAction.apply(indexPath).startWithResult { (result: Result<CGFloat, ActionError<NoError>>) in
+      guard let value = result.value else { return }
+      height = value
+    }
+    return height
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
     guard let viewModel = viewModel, let didSelectRowAtIndexPathAction = viewModel.didSelectRowAtIndexPathAction else { return }
-    didSelectRowAtIndexPathAction.apply(indexPath).start()
+    didSelectRowAtIndexPathAction.apply(tableView).start()
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
 }
 
 struct SearchViewModel {
 
-  var didSelectRowAtIndexPathAction: Action<IndexPath, Void, NoError>?
-  
-  var numberOfSections: (() -> Int)?
-  var numberOfRowsInSection: ((_ section: Int) -> Int)?
-  
-  var heightForRowAtIndexPath: ((_ indexPath: IndexPath) -> CGFloat)?
-  var cellForRowAtIndexPath: ((_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell)?
+  var numberOfSectionsAction: Action<Void, Int, NoError>?
+  var numberOfRowsInSectionAction: Action<Int, Int, NoError>?
 
+  var cellForRowAtIndexPathAction: Action<(UITableView, IndexPath), UITableViewCell, NoError>?
+
+  var heightForRowAtIndexPathAction: Action<IndexPath, CGFloat, NoError>?
+
+  var didSelectRowAtIndexPathAction: Action<UITableView, Void, NoError>?
+  
 }

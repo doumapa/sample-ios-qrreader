@@ -12,6 +12,8 @@ import ReactiveCocoa
 
 class SearchViewSectionCell: UITableViewCell {
 
+  @IBOutlet weak var titleLabel: UILabel!
+
   // MARK: - Class properties
   
   static let estimateSize: CGSize = CGSize(width: 375, height: 44)
@@ -44,7 +46,7 @@ class SearchViewSectionCell: UITableViewCell {
   
   fileprivate func bind() {
     guard let cellModel = cellModel else { return }
-    textLabel?.reactive.text <~ cellModel.titleText
+    titleLabel?.reactive.text <~ cellModel.titleText
   }
   
 }
